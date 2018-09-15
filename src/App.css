@@ -1,7 +1,10 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
-  padding: 40px;
-  text-align: center;
+  height: 100vh;
 }
 
 .header {
@@ -52,4 +55,14 @@
 
 .register {
   font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  line-height: 2;
+}
+
+.link {
+  color: white;
+  line-height: 2;
 }

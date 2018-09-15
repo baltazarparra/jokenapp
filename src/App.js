@@ -9,7 +9,8 @@ class App extends Component {
       isntAuth: true,
       isInvite: false,
       isWaiting: false,
-      isPlaying: false
+      isPlaying: false,
+      showResult: false
     }
   }
 
@@ -26,11 +27,16 @@ class App extends Component {
     }, 3000)
   }
 
+  handleResult = () => {
+    this.setState({ showResult: true })
+  }
+
   render() {
     return <AppContent
       {...this.state}
       handleInvite={this.handleInvite}
       waitingPlayer={this.waitingPlayer}
+      handleResult={this.handleResult}
     />
   }
 }

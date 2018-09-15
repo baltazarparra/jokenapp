@@ -72,9 +72,48 @@
 }
 
 .play {
+  height: 100vh;
+  max-height: 900px;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
+}
+
+.play__points {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  color: #dbdbdb;
+  font-size: 24px;
+}
+
+.play__point {
+  width: 50%;
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.play__counter {
+  margin-bottom: 4px;
+
+  color: #b3afaf;
+  font-size: 20px;
+  text-align: center;
+}
+
+.play__play-game {
+  color: #dbdbdb;
+  font-size: 46px;
+  text-transform: uppercase;
 }

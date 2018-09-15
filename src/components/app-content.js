@@ -6,7 +6,16 @@ import Invite from './invite'
 import Waiting from './waiting'
 import Play from './play'
 
-const AppContent = ({ isntAuth, isInvite, isWaiting, isPlaying, handleInvite, waitingPlayer }) => (
+const AppContent = ({
+    isntAuth,
+    isInvite,
+    isWaiting,
+    isPlaying,
+    showResult,
+    handleInvite,
+    waitingPlayer,
+    handleResult
+  }) => (
   <div className="container">
     {!isWaiting && !isPlaying && <Header />}
     {!isPlaying && <Logo />}
@@ -15,7 +24,7 @@ const AppContent = ({ isntAuth, isInvite, isWaiting, isPlaying, handleInvite, wa
       <Invite isWaiting={isWaiting} waitingPlayer={waitingPlayer}
     />}
     {isWaiting && <Waiting />}
-    {isPlaying && <Play />}
+    {isPlaying && <Play handleResult={handleResult} showResult={showResult} />}
   </div>
 )
 

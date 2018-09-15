@@ -3,13 +3,17 @@ import Header from './header'
 import Logo from './logo'
 import Form from './form'
 import Invite from './invite'
+import Waiting from './waiting'
 
-const AppContent = ({ isInvite, handleInvite }) => (
+const AppContent = ({ isntAuth, isInvite, isWaiting, handleInvite, waitingPlayer }) => (
   <div className="container">
-    <Header />
+    {!isWaiting && <Header />}
     <Logo />
-    {!isInvite && <Form handleInvite={handleInvite} />}
-    {isInvite && <Invite />}
+    {isntAuth && <Form handleInvite={handleInvite} />}
+    {isInvite &&
+      <Invite isWaiting={isWaiting} waitingPlayer={waitingPlayer}
+    />}
+    {isWaiting && <Waiting />}
   </div>
 )
 

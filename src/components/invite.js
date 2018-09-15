@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Invite = () => (
+const Invite = ({ waitingPlayer }) => (
   <section className="section invite">
     <h2 className="subtitle">Invite a friend</h2>
-    <a className="link" href="">http://jokenapp.com/aujfd48</a>
+    <a className="link" onClick={waitingPlayer}>http://jokenapp.com/aujfd48</a>
   </section>
 )
 

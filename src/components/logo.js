@@ -3,7 +3,7 @@ import logo from '../logo.svg'
 
 const Logo = () => (
   <section className="section">
-    <img src={logo} alt="logo" />
+    <img className="logo" src={logo} alt="logo" />
   </section>
 )
 

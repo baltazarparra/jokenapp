@@ -11,6 +11,10 @@
   margin-bottom: 40px;
 }
 
+.logo {
+  height: 120px;
+}
+
 .title {
   font-size: 36px;
 }
@@ -65,4 +69,12 @@
 .link {
   color: white;
   line-height: 2;
+}
+
+.play {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
 }

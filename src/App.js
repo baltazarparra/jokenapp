@@ -8,7 +8,8 @@ class App extends Component {
     this.state = {
       isntAuth: true,
       isInvite: false,
-      isWaiting: false
+      isWaiting: false,
+      isPlaying: false
     }
   }
 
@@ -20,6 +21,9 @@ class App extends Component {
   waitingPlayer = (e) => {
     e.preventDefault()
     this.setState({ isInvite: false, isWaiting: true })
+    setTimeout(() => {
+      this.setState({ isWaiting: false, isPlaying: true })
+    }, 3000)
   }
 
   render() {

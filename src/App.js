@@ -5,14 +5,25 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Its worx dude</h1>
+      <div className="container">
+        <header className="header">
+          <h1 className="title">Jo Ken App</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section className="section">
+          <img src={logo} alt="logo" />
+        </section>
+        <form className="form">
+          <p className="inputContent">
+            <label className="label">Name</label>
+            <input className="input" type="text" />
+          </p>
+          <p className="inputContent">
+            <label className="label">Password</label>
+            <input className="input" type="password" />
+          </p>
+          <button className="button register">Register</button>
+          <button className="button">Login</button>
+        </form>
       </div>
     );
   }

@@ -141,3 +141,17 @@
 .result__friend-choice {
   transform: rotate(-90deg) scaleX(-1);
 }
+
+.your-choice {
+  padding: 40px;
+  transform: rotate(180deg);
+}
+
+.friend-choice {
+  padding: 40px;
+  transform: rotate(360deg);
+}
+
+.play-title {
+  text-align: center;
+}

@@ -11,6 +11,8 @@ const AppContent = ({
     password,
     yourScore,
     friendScore,
+    userChoice,
+    friendChoice,
     isntAuth,
     isInvite,
     isWaiting,
@@ -44,6 +46,8 @@ const AppContent = ({
         friendScore={friendScore}
         userLogic={userLogic}
         showResult={showResult}
+        userChoice={userChoice}
+        friendChoice={friendChoice}
       />}
   </div>
 )

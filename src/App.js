@@ -47,7 +47,7 @@ class App extends Component {
 
   userLogic = (e) => {
     this.setState({ userChoice: e.target.alt })
-    return this.friendLogic()
+    this.friendLogic()
   }
 
   friendLogic = () => {
@@ -66,7 +66,6 @@ class App extends Component {
         this.handleResult()
         break
       default:
-        this.handleResult()
         break
     }
   }

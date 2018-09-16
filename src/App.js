@@ -6,6 +6,9 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      login: '',
+      password: '',
+      emptyUser: false,
       isntAuth: true,
       isInvite: false,
       isWaiting: false,
@@ -14,9 +17,20 @@ class App extends Component {
     }
   }
 
-  handleInvite = (e) => {
+  handleAuth = (e) => {
     e.preventDefault()
-    this.setState({ isntAuth: false, isInvite: true })
+    if(this.state.login && this.state.password) {
+      return this.setState({ isntAuth: false, isInvite: true })
+    }
+    this.setState({ emptyUser: true })
+  }
+
+  handleUsername = (e) => {
+    this.setState({ login: e.target.value })
+  }
+
+  handlePassword = (e) => {
+    this.setState({ password: e.target.value })
   }
 
   waitingPlayer = (e) => {
@@ -34,9 +48,11 @@ class App extends Component {
   render() {
     return <AppContent
       {...this.state}
-      handleInvite={this.handleInvite}
+      handleAuth={this.handleAuth}
       waitingPlayer={this.waitingPlayer}
       handleResult={this.handleResult}
+      handleUsername={this.handleUsername}
+      handlePassword={this.handlePassword}
     />
   }
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Score = () => (
+const Score = ({ login }) => (
   <header className="play__points">
-    <span>kakkau - 1</span>
+    <span>{login} - 1</span>
     <span> baltz - 2</span>
   </header>
 )

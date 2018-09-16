@@ -1,17 +1,25 @@
 import React from 'react'
 
-const Form = ({ handleInvite }) => (
-  <form className="form">
+const Form = ({ emptyUser, handleUsername, handlePassword, handleAuth }) => (
+  <form className="form" onSubmit={handleAuth}>
     <p className="inputContent">
       <label className="label">Name</label>
-      <input className="input" type="text" />
+      <input
+        className="input"
+        type="text"
+        onChange={handleUsername}
+      />
     </p>
     <p className="inputContent">
       <label className="label">Password</label>
-      <input className="input" type="password" />
+      <input
+        className="input"
+        type="password"
+        onChange={handlePassword}
+      />
     </p>
-    <button className="button register" onClick={handleInvite}>Register</button>
-    <button className="button" onClick={handleInvite}>Login</button>
+    <button className="button" type="submit">Enter</button>
+    {emptyUser && <p className="empty">Enter a username</p>}
   </form>
 )
 

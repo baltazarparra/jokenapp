@@ -4,9 +4,9 @@ import Counter from './counter'
 import Choices from './choices'
 import Result from './result'
 
-const Play = ({ handleResult, showResult }) => (
+const Play = ({ login, handleResult, showResult }) => (
   <section className="play">
-    <Score />
+    <Score login={login} />
     {!showResult && <Counter />}
     {!showResult && <Choices handleResult={handleResult} />}
     {showResult && <Result />}

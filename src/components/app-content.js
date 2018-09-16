@@ -7,24 +7,35 @@ import Waiting from './waiting'
 import Play from './play'
 
 const AppContent = ({
+    login,
+    password,
     isntAuth,
     isInvite,
     isWaiting,
     isPlaying,
     showResult,
-    handleInvite,
+    emptyUser,
+    handleUsername,
+    handlePassword,
+    handleAuth,
     waitingPlayer,
     handleResult
   }) => (
   <div className="container">
     {!isWaiting && !isPlaying && <Header />}
     {!isPlaying && <Logo />}
-    {isntAuth && <Form handleInvite={handleInvite} />}
+    {isntAuth &&
+      <Form
+        emptyUser={emptyUser}
+        handleUsername={handleUsername}
+        handlePassword={handlePassword}
+        handleAuth={handleAuth}
+    />}
     {isInvite &&
       <Invite isWaiting={isWaiting} waitingPlayer={waitingPlayer}
     />}
     {isWaiting && <Waiting />}
-    {isPlaying && <Play handleResult={handleResult} showResult={showResult} />}
+    {isPlaying && <Play login={login} handleResult={handleResult} showResult={showResult} />}
   </div>
 )
 

@@ -5,7 +5,6 @@ const Result = ({ finalScore, playAgain, youDied }) => (
     <h1 className={`result__title ${youDied ? 'lose' : ''}`}>{finalScore}</h1>
     <div className="result__control">
       <button className="button" onClick={playAgain}>Play Again</button>
-      <button className="button">View Ranking</button>
     </div>
   </section>
 )

@@ -16,7 +16,6 @@ const AppContent = ({
     showResult,
     emptyUser,
     handleUsername,
-    handlePassword,
     handleAuth,
     playedByUser,
     finalScore,
@@ -33,7 +32,6 @@ const AppContent = ({
     {isntAuth &&
       <Form
         handleUsername={handleUsername}
-        handlePassword={handlePassword}
         handleAuth={handleAuth}
         emptyUser={emptyUser}
     />}

@@ -7,7 +7,6 @@ class App extends Component {
     super()
     this.state = {
       login: '',
-      password: '',
       userChoice: '',
       friendChoice: '',
       yourScore: 0,
@@ -25,7 +24,7 @@ class App extends Component {
 
   handleAuth = (e) => {
     e.preventDefault()
-    if(this.state.login && this.state.password) {
+    if(this.state.login) {
       return this.setState({ isntAuth: false, isPlaying: true })
     }
     this.setState({ emptyUser: true })
@@ -33,10 +32,6 @@ class App extends Component {
 
   handleUsername = (e) => {
     this.setState({ login: e.target.value })
-  }
-
-  handlePassword = (e) => {
-    this.setState({ password: e.target.value })
   }
 
   playedByUser = (e) => {

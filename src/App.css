@@ -16,13 +16,8 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   font-weight: normal;
 }
 
-.hb-vote-widget {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

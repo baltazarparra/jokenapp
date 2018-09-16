@@ -69,6 +69,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 }
 
 .button {
+  cursor: pointer;
   display: block;
   margin: 0 auto;
   background: none;
@@ -141,6 +142,10 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   width: 100%;
 }
 
+.choices img {
+  cursor: pointer;
+}
+
 .result {
   display: flex;
   flex-direction: column;
@@ -156,9 +161,16 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 }
 
 .result__title {
-  font-size: 34px;
+  font-size: 36px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.result__control {
+  height: 6vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .lose {

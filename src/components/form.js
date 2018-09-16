@@ -19,7 +19,7 @@ const Form = ({ emptyUser, handleUsername, handlePassword, handleAuth }) => (
       />
     </p>
     <button className="button" type="submit">Enter</button>
-    {emptyUser && <p className="empty">Enter a username</p>}
+    {emptyUser && <p className="empty">Enter a unique username</p>}
   </form>
 )
 

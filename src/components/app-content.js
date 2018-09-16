@@ -9,6 +9,8 @@ import Play from './play'
 const AppContent = ({
     login,
     password,
+    yourScore,
+    friendScore,
     isntAuth,
     isInvite,
     isWaiting,
@@ -19,7 +21,7 @@ const AppContent = ({
     handlePassword,
     handleAuth,
     waitingPlayer,
-    handleResult
+    userLogic
   }) => (
   <div className="container">
     {!isWaiting && !isPlaying && <Header />}
@@ -31,11 +33,18 @@ const AppContent = ({
         handlePassword={handlePassword}
         handleAuth={handleAuth}
     />}
-    {isInvite &&
+    {false &&
       <Invite isWaiting={isWaiting} waitingPlayer={waitingPlayer}
     />}
-    {isWaiting && <Waiting />}
-    {isPlaying && <Play login={login} handleResult={handleResult} showResult={showResult} />}
+    {false && <Waiting />}
+    {isPlaying &&
+      <Play
+        login={login}
+        yourScore={yourScore}
+        friendScore={friendScore}
+        userLogic={userLogic}
+        showResult={showResult}
+      />}
   </div>
 )
 

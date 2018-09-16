@@ -8,6 +8,10 @@ class App extends Component {
     this.state = {
       login: '',
       password: '',
+      yourScore: 0,
+      friendScore: 0,
+      userChoice: '',
+      friendChoice: '',
       emptyUser: false,
       isntAuth: true,
       isInvite: false,
@@ -20,7 +24,7 @@ class App extends Component {
   handleAuth = (e) => {
     e.preventDefault()
     if(this.state.login && this.state.password) {
-      return this.setState({ isntAuth: false, isInvite: true })
+      return this.setState({ isntAuth: false, isPlaying: true })
     }
     this.setState({ emptyUser: true })
   }
@@ -41,8 +45,35 @@ class App extends Component {
     }, 3000)
   }
 
-  handleResult = () => {
-    this.setState({ showResult: true })
+  userLogic = (e) => {
+    this.setState({ userChoice: e.target.alt })
+    return this.friendLogic()
+  }
+
+  friendLogic = () => {
+    const choice = (Math.random() * 3 | 0) + 1
+    switch (choice) {
+      case 1:
+        this.setState({ friendChoice: 'rock' })
+        this.handleResult()
+        break
+      case 2:
+        this.setState({ friendChoice: 'paper' })
+        this.handleResult()
+        break
+      case 3:
+        this.setState({ friendChoice: 'scissor' })
+        this.handleResult()
+        break
+      default:
+        this.handleResult()
+        break
+    }
+  }
+
+  handleResult = (e) => {
+    console.log(this.state.friendChoice)
+    console.log(this.state.userChoice)
   }
 
   render() {
@@ -50,7 +81,7 @@ class App extends Component {
       {...this.state}
       handleAuth={this.handleAuth}
       waitingPlayer={this.waitingPlayer}
-      handleResult={this.handleResult}
+      userLogic={this.userLogic}
       handleUsername={this.handleUsername}
       handlePassword={this.handlePassword}
     />

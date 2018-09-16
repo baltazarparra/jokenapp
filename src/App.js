@@ -12,6 +12,7 @@ class App extends Component {
       friendChoice: '',
       yourScore: 0,
       friendScore: 0,
+      finalScore: '',
       isntAuth: true,
       emptyUser: false,
       isInvite: false,
@@ -71,9 +72,17 @@ class App extends Component {
     let friendPrevScore = this.state.friendScore
     let friendNewScore = friendPrevScore + 1
     if (userEntry === 'paper') {
-      this.setState({ yourScore: yourNewScore })
+      this.setState({ yourScore: yourNewScore }, () => {
+        if(this.state.yourScore === 3) {
+          this.handleWin()
+        }
+      })
     } else if (userEntry === 'scissor') {
-      this.setState({ friendScore: friendNewScore })
+      this.setState({ friendScore: friendNewScore }, () => {
+        if(this.state.friendScore === 3) {
+          this.handleLoose()
+        }
+      })
     }
   }
 
@@ -83,9 +92,17 @@ class App extends Component {
     let friendPrevScore = this.state.friendScore
     let friendNewScore = friendPrevScore + 1
     if (userEntry === 'scissor') {
-      this.setState({ yourScore: yourNewScore })
+      this.setState({ yourScore: yourNewScore }, () => {
+        if(this.state.yourScore === 3) {
+          this.handleWin()
+        }
+      })
     } else if (userEntry === 'rock') {
-      this.setState({ friendScore: friendNewScore })
+      this.setState({ friendScore: friendNewScore }, () => {
+        if(this.state.friendScore === 3) {
+          this.handleLoose()
+        }
+      })
     }
   }
 
@@ -95,10 +112,30 @@ class App extends Component {
     let friendPrevScore = this.state.friendScore
     let friendNewScore = friendPrevScore + 1
     if (userEntry === 'rock') {
-      this.setState({ yourScore: yourNewScore })
+      this.setState({ yourScore: yourNewScore }, () => {
+        if(this.state.yourScore === 3) {
+          this.handleWin()
+        }
+      })
     } else if (userEntry === 'paper') {
-      this.setState({ friendScore: friendNewScore })
+      this.setState({ friendScore: friendNewScore }, () => {
+        if(this.state.friendScore === 3) {
+          this.handleLoose()
+        }
+      })
     }
+  }
+
+  handleWin = () => {
+    this.setState({ showResult: true, isPlaying: false, finalScore: 'U Fckn Won! o/' })
+  }
+
+  handleLoose = () => {
+    this.setState({ showResult: true, isPlaying: false, finalScore: 'YOU DIED' })
+  }
+
+  playAgain = () => {
+    this.setState({ showResult: false, isPlaying: true, yourScore: 0, friendScore: 0 })
   }
 
   render() {
@@ -108,6 +145,7 @@ class App extends Component {
       playedByUser={this.playedByUser}
       handleUsername={this.handleUsername}
       handlePassword={this.handlePassword}
+      playAgain={this.playAgain}
     />
   }
 }

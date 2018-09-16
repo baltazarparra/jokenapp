@@ -3,6 +3,7 @@ import Header from './header'
 import Logo from './logo'
 import Form from './form'
 import Play from './play'
+import Result from './result'
 
 const AppContent = ({
     login,
@@ -17,14 +18,16 @@ const AppContent = ({
     handleUsername,
     handlePassword,
     handleAuth,
-    playedByUser
+    playedByUser,
+    finalScore,
+    playAgain
   }) => (
   <div className="container">
 
-    {!isPlaying && <Header />}
+    {!isPlaying && !showResult && <Header />}
 
 
-    {!isPlaying && <Logo />}
+    {!isPlaying && !showResult && <Logo />}
 
     {isntAuth &&
       <Form
@@ -43,8 +46,9 @@ const AppContent = ({
         userChoice={userChoice}
         friendChoice={friendChoice}
         playedByUser={playedByUser}
-        showResult={showResult}
     />}
+
+    {showResult && <Result finalScore={finalScore} playAgain={playAgain} />}
 
   </div>
 )

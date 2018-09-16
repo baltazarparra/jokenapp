@@ -1,14 +1,10 @@
 import React from 'react'
-import rock from '../rock.svg'
-import paper from '../paper.svg'
 
-const Result = ({ handleResult }) => (
+const Result = ({ finalScore, playAgain }) => (
   <section className="result">
-    <div className="result__choice">
-      <img className="result__you-choice" src={rock} alt="rock" onClick={handleResult} />
-      <img className="result__friend-choice" src={paper} alt="paper" onClick={handleResult} />
-    </div>
-    <h2 className="result__title">You Loose :(</h2>
+    <h1>{finalScore}</h1>
+    <button className="button" onClick={playAgain}>Play Again</button>
+    <button className="button">View Ranking</button>
   </section>
 )
 

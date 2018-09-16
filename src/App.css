@@ -169,12 +169,12 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 
 .your-choice {
   padding: 40px;
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 
 .friend-choice {
   padding: 40px;
-  transform: rotate(360deg);
+  transform: rotate(180deg);
 }
 
 .play-title {

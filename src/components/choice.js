@@ -3,7 +3,7 @@ import rock from '../rock.svg'
 import paper from '../paper.svg'
 import scissor from '../scissor.svg'
 
-const Choices = ({ userLogic }) => (
+const Choice = ({ userLogic }) => (
   <main className="choices">
     <img src={rock} alt="rock" onClick={userLogic} />
     <img src={paper} alt="paper" onClick={userLogic} />
@@ -11,4 +11,4 @@ const Choices = ({ userLogic }) => (
   </main>
 )
 
-export default Choices
+export default Choice

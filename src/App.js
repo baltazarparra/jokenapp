@@ -37,14 +37,6 @@ class App extends Component {
     this.setState({ password: e.target.value })
   }
 
-  waitingPlayer = (e) => {
-    e.preventDefault()
-    this.setState({ isInvite: false, isWaiting: true })
-    setTimeout(() => {
-      this.setState({ isWaiting: false, isPlaying: true })
-    }, 3000)
-  }
-
   userLogic = (e) => {
     this.setState({ userChoice: e.target.alt })
     this.friendLogic()
@@ -55,24 +47,16 @@ class App extends Component {
     switch (choice) {
       case 1:
         this.setState({ friendChoice: 'rock' })
-        this.handleResult()
         break
       case 2:
         this.setState({ friendChoice: 'paper' })
-        this.handleResult()
         break
       case 3:
         this.setState({ friendChoice: 'scissor' })
-        this.handleResult()
         break
       default:
         break
     }
-  }
-
-  handleResult = (e) => {
-    console.log(this.state.friendChoice)
-    console.log(this.state.userChoice)
   }
 
   render() {

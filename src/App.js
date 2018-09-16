@@ -18,7 +18,8 @@ class App extends Component {
       isInvite: false,
       isWaiting: false,
       isPlaying: false,
-      showResult: false
+      showResult: false,
+      youdied: ''
     }
   }
 
@@ -127,11 +128,11 @@ class App extends Component {
   }
 
   handleWin = () => {
-    this.setState({ showResult: true, isPlaying: false, finalScore: 'U Fckn Won! o/' })
+    this.setState({ showResult: true, isPlaying: false, finalScore: 'U Fckn Won! o/', youDied: false })
   }
 
   handleLoose = () => {
-    this.setState({ showResult: true, isPlaying: false, finalScore: 'YOU DIED' })
+    this.setState({ showResult: true, isPlaying: false, finalScore: 'YOU DIED', youDied: true })
   }
 
   playAgain = () => {

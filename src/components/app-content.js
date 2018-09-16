@@ -20,7 +20,8 @@ const AppContent = ({
     handleAuth,
     playedByUser,
     finalScore,
-    playAgain
+    playAgain,
+    youDied
   }) => (
   <div className="container">
 
@@ -48,7 +49,7 @@ const AppContent = ({
         playedByUser={playedByUser}
     />}
 
-    {showResult && <Result finalScore={finalScore} playAgain={playAgain} />}
+    {showResult && <Result finalScore={finalScore} playAgain={playAgain} youDied={youDied} />}
 
   </div>
 )

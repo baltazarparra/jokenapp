@@ -116,6 +116,14 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   justify-content: space-between;
 }
 
+@media (min-width: 450px) {
+
+  .play__points {
+    font-size: 26px;
+  }
+
+}
+
 .play__counter {
   color: #b3afaf;
   font-size: 20px;
@@ -148,8 +156,28 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 }
 
 .result__title {
-  font-size: 28px;
+  font-size: 34px;
+  text-align: center;
   text-transform: uppercase;
+}
+
+.lose {
+  font-family: serif;
+  color: #a52415;
+  animation: lose-animation 1.4s linear forwards;
+}
+
+@keyframes lose-animation {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.4);
+  }
+
+
 }
 
 .result__you-choice {
@@ -172,4 +200,13 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 
 .play-title {
   text-align: center;
+}
+
+
+@media (min-width: 450px) {
+
+  .play-title {
+    font-size: 46px;
+  }
+
 }

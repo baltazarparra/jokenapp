@@ -8,12 +8,12 @@ class App extends Component {
     this.state = {
       login: '',
       password: '',
-      yourScore: 0,
-      friendScore: 0,
       userChoice: '',
       friendChoice: '',
-      emptyUser: false,
+      yourScore: 0,
+      friendScore: 0,
       isntAuth: true,
+      emptyUser: false,
       isInvite: false,
       isWaiting: false,
       isPlaying: false,
@@ -37,12 +37,12 @@ class App extends Component {
     this.setState({ password: e.target.value })
   }
 
-  userLogic = (e) => {
+  playedByUser = (e) => {
     this.setState({ userChoice: e.target.alt })
-    this.friendLogic()
+    this.playedByCpu()
   }
 
-  friendLogic = () => {
+  playedByCpu = () => {
     const choice = (Math.random() * 3 | 0) + 1
     switch (choice) {
       case 1:
@@ -63,8 +63,7 @@ class App extends Component {
     return <AppContent
       {...this.state}
       handleAuth={this.handleAuth}
-      waitingPlayer={this.waitingPlayer}
-      userLogic={this.userLogic}
+      playedByUser={this.playedByUser}
       handleUsername={this.handleUsername}
       handlePassword={this.handlePassword}
     />

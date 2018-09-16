@@ -3,11 +3,11 @@ import rock from '../rock.svg'
 import paper from '../paper.svg'
 import scissor from '../scissor.svg'
 
-const Choice = ({ userLogic }) => (
+const Choice = ({ playedByUser }) => (
   <main className="choices">
-    <img src={rock} alt="rock" onClick={userLogic} />
-    <img src={paper} alt="paper" onClick={userLogic} />
-    <img src={scissor} alt="scissor" onClick={userLogic} />
+    <img src={rock} alt="rock" onClick={playedByUser} />
+    <img src={paper} alt="paper" onClick={playedByUser} />
+    <img src={scissor} alt="scissor" onClick={playedByUser} />
   </main>
 )
 

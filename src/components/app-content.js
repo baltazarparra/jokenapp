@@ -17,28 +17,35 @@ const AppContent = ({
     handleUsername,
     handlePassword,
     handleAuth,
-    userLogic
+    playedByUser
   }) => (
   <div className="container">
+
     {!isPlaying && <Header />}
+
+
     {!isPlaying && <Logo />}
+
     {isntAuth &&
       <Form
-        emptyUser={emptyUser}
         handleUsername={handleUsername}
         handlePassword={handlePassword}
         handleAuth={handleAuth}
+        emptyUser={emptyUser}
     />}
+
     {isPlaying &&
       <Play
+        isPlaying={isPlaying}
         login={login}
         yourScore={yourScore}
         friendScore={friendScore}
-        userLogic={userLogic}
         userChoice={userChoice}
         friendChoice={friendChoice}
+        playedByUser={playedByUser}
         showResult={showResult}
     />}
+
   </div>
 )
 

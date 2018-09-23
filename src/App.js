@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppContent from './components/app-content'
+import firebase from 'firebase'
 
+const config = {
+  apiKey: "AIzaSyBx2Ht0SJigGD_tf_ycjL55ChPxGvvr8cw",
+  authDomain: "jokenapp.firebaseapp.com",
+  databaseURL: "https://jokenapp.firebaseio.com",
+  projectId: "jokenapp",
+  storageBucket: "jokenapp.appspot.com",
+  messagingSenderId: "25504544170"
+}
+
+firebase.initializeApp(config)
 class App extends Component {
   constructor() {
     super()
     this.state = {
       login: '',
+      password: '',
       userChoice: '',
       friendChoice: '',
       yourScore: 0,
@@ -14,24 +26,63 @@ class App extends Component {
       finalScore: '',
       isntAuth: true,
       emptyUser: false,
+      authError: '',
       isInvite: false,
       isWaiting: false,
       isPlaying: false,
       showResult: false,
-      youdied: ''
+      youdied: '',
+      globalScore: 0
     }
   }
 
-  handleAuth = (e) => {
+  handleLogin = (e) => {
     e.preventDefault()
-    if(this.state.login) {
+    const auth = firebase.auth()
+    const promise = auth.signInWithEmailAndPassword(this.state.login, this.state.password)
+
+    promise.then(() => {
+      this.updateScore()
       return this.setState({ isntAuth: false, isPlaying: true })
-    }
-    this.setState({ emptyUser: true })
+    })
+
+    promise.catch(e => {
+      this.setState({ emptyUser: true, authError: e.message })
+      console.log(e.message)
+    })
+
+  }
+
+  updateScore = () => {
+    const userId = firebase.auth().currentUser.uid
+    firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+      var score = snapshot.val().score
+      this.setState({ globalScore: score })
+    });
+  }
+
+  handleRegister = (e) => {
+    e.preventDefault()
+    const auth = firebase.auth()
+    const promise = auth.createUserWithEmailAndPassword(this.state.login, this.state.password)
+
+    promise.then(() => {
+      return this.setState({ isntAuth: false, isPlaying: true })
+    })
+
+    promise.catch(e => {
+      this.setState({ emptyUser: true, authError: e.message })
+      console.log(e.message)
+    })
+
   }
 
   handleUsername = (e) => {
     this.setState({ login: e.target.value })
+  }
+
+  handlePassword = (e) => {
+    this.setState({ password: e.target.value })
   }
 
   playedByUser = (e) => {
@@ -123,7 +174,13 @@ class App extends Component {
   }
 
   handleWin = () => {
-    this.setState({ showResult: true, isPlaying: false, finalScore: 'U Fckn Won! o/', youDied: false })
+    const userId = firebase.auth().currentUser.uid
+    let currentScore = this.state.globalScore
+    let newScore = currentScore + 1
+    this.setState({ globalScore: newScore, showResult: true, isPlaying: false, finalScore: 'U Fckn Won! o/', youDied: false })
+    firebase.database().ref('users/' + userId).set({
+      score: newScore
+    })
   }
 
   handleLoose = () => {
@@ -137,7 +194,8 @@ class App extends Component {
   render() {
     return <AppContent
       {...this.state}
-      handleAuth={this.handleAuth}
+      handleLogin={this.handleLogin}
+      handleRegister={this.handleRegister}
       playedByUser={this.playedByUser}
       handleUsername={this.handleUsername}
       handlePassword={this.handlePassword}

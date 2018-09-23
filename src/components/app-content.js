@@ -15,12 +15,16 @@ const AppContent = ({
     isPlaying,
     showResult,
     emptyUser,
+    authError,
     handleUsername,
-    handleAuth,
+    handlePassword,
+    handleLogin,
+    handleRegister,
     playedByUser,
     finalScore,
     playAgain,
-    youDied
+    youDied,
+    globalScore
   }) => (
   <div className="container">
 
@@ -32,19 +36,23 @@ const AppContent = ({
     {isntAuth &&
       <Form
         handleUsername={handleUsername}
-        handleAuth={handleAuth}
+        handlePassword={handlePassword}
+        handleLogin={handleLogin}
+        handleRegister={handleRegister}
         emptyUser={emptyUser}
+        authError={authError}
     />}
 
     {isPlaying &&
       <Play
         isPlaying={isPlaying}
-        login={login}
         yourScore={yourScore}
         friendScore={friendScore}
         userChoice={userChoice}
         friendChoice={friendChoice}
         playedByUser={playedByUser}
+        login={login}
+        globalScore={globalScore}
     />}
 
     {showResult && <Result finalScore={finalScore} playAgain={playAgain} youDied={youDied} />}

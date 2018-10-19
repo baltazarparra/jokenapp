@@ -1,3 +1,1 @@
 # Jokenapp
-
-Multiplayer online
